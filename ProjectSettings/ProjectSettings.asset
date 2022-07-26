@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 22
-  productGUID: 723b6a46031c4e240a50274e954ef898
+  productGUID: b3750313c14010f4ab966b2f726a5561
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -164,7 +164,8 @@ PlayerSettings:
   resetResolutionOnWindowResize: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Standalone: com.DefaultCompany.SaveTheTown
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -694,7 +695,7 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: c5275394-b90a-4273-b0c6-d27f9ca57a1c
+  cloudProjectId: 9e3c9304-03ef-48b1-bf42-ba64ce2b6b12
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: 
