@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour {
     private Rigidbody2D rb2D;
     private Animator animator;
+    [SerializeField] private ParticleSystem smokeEffect;
 
     [SerializeField] private float speed = 2f;
     [SerializeField] private bool vertical;//是否是纵向摆渡
@@ -58,5 +59,6 @@ public class EnemyController : MonoBehaviour {
         broken = false;
         rb2D.simulated = false;
         animator.SetTrigger("Fixed");
+        smokeEffect.Stop();
     }
 }
