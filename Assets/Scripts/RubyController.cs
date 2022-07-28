@@ -3,7 +3,7 @@ using UnityEngine;
 public class RubyController : MonoBehaviour {
     [SerializeField] private float speed = 3.0f;//主角移动速度
 
-    [SerializeField] private int maxHealth = 5;//最大生命值容量
+    public int maxHealth = 5;//最大生命值容量
     [SerializeField] private float timeInvincible = 2.0f;//无敌时间上限
 
     public int health { get => currentHealth; }
@@ -17,6 +17,8 @@ public class RubyController : MonoBehaviour {
 
     private Animator animator;
     private Vector2 lookDirection = new Vector2(1, 0);//因为与机器人相比，Ruby 可以站立不动。她站立不动时，Move X 和 Y 均为 0，因此状态机不知道要使用哪个方向（除非我们指定方向）。
+
+    [SerializeField] private GameObject projectilePrefab;
 
     // Start is called before the first frame update
     private void Start() {
@@ -49,6 +51,9 @@ public class RubyController : MonoBehaviour {
             if (invincibleTimer < 0)
                 isInvincible = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+            Launch();
     }
 
     private void FixedUpdate() {
@@ -70,5 +75,14 @@ public class RubyController : MonoBehaviour {
 
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
+    }
+
+    private void Launch() {
+        GameObject gameObject = Instantiate(projectilePrefab, rb2D.position + Vector2.up * 0.5f, Quaternion.identity);
+
+        Projectile projectile = gameObject.AddComponent<Projectile>();
+        projectile.Launch(lookDirection, 300);
+
+        animator.SetTrigger("Launch");
     }
 }
