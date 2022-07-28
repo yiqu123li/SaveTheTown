@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour {
     [SerializeField] private float changeTime = 3.0f;
     private float timer;
     private int direction = 1;
+    private bool broken = true;
 
 
     private void Start() {
@@ -18,6 +19,9 @@ public class EnemyController : MonoBehaviour {
     }
 
     private void Update() {
+        if (!broken)
+            return;
+
         timer -= Time.deltaTime;
         if (timer < 0) {
             direction = -direction;
@@ -26,6 +30,10 @@ public class EnemyController : MonoBehaviour {
     }
 
     private void FixedUpdate() {
+
+        if (!broken)
+            return;
+
         Vector2 pos = rb2D.position;
         if (vertical) {
             pos.y += Time.deltaTime * speed * direction;
@@ -43,5 +51,12 @@ public class EnemyController : MonoBehaviour {
         RubyController player = other.gameObject.GetComponent<RubyController>();
         if (player)
             player.ChangeHealth(-1);
+    }
+
+
+    public void Fix() {
+        broken = false;
+        rb2D.simulated = false;
+        animator.SetTrigger("Fixed");
     }
 }
