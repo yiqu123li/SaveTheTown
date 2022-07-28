@@ -3,8 +3,9 @@ using UnityEngine;
 public class RubyController : MonoBehaviour {
     [SerializeField] private float speed = 3.0f;//主角移动速度
 
-    public int maxHealth = 5;//最大生命值容量
-    public float timeInvincible = 2.0f;//无敌时间上限
+    [SerializeField] private int maxHealth = 5;//最大生命值容量
+    [SerializeField] private float timeInvincible = 2.0f;//无敌时间上限
+
     public int health { get => currentHealth; }
     private int currentHealth;//当前主角生命值
     private bool isInvincible;//当前是否处于无敌状态
