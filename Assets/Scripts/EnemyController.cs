@@ -4,9 +4,9 @@ public class EnemyController : MonoBehaviour {
     private Rigidbody2D rb2D;
     private Animator animator;
 
-    public float speed = 2f;
-    private bool vertical;
-    public float changeTime = 3.0f;
+    [SerializeField] private float speed = 2f;
+    [SerializeField] private bool vertical;//是否是纵向摆渡
+    [SerializeField] private float changeTime = 3.0f;
     private float timer;
     private int direction = 1;
 
