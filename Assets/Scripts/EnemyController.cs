@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour {
     private Rigidbody2D rb2D;
-
+    private Animator animator;
 
     public float speed = 2f;
     private bool vertical;
@@ -10,8 +10,10 @@ public class EnemyController : MonoBehaviour {
     private float timer;
     private int direction = 1;
 
+
     private void Start() {
         rb2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         timer = changeTime;
     }
 
@@ -27,8 +29,12 @@ public class EnemyController : MonoBehaviour {
         Vector2 pos = rb2D.position;
         if (vertical) {
             pos.y += Time.deltaTime * speed * direction;
+            animator.SetFloat("Move X", 0);
+            animator.SetFloat("Move Y", direction);
         } else {
             pos.x += Time.deltaTime * speed * direction;
+            animator.SetFloat("Move X", direction);
+            animator.SetFloat("Move Y", 0);
         }
         rb2D.MovePosition(pos);
     }

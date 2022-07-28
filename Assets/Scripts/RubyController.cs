@@ -14,12 +14,16 @@ public class RubyController : MonoBehaviour {
     private float horizontal;
     private float vertical;
 
+    private Animator animator;
+    private Vector2 lookDirection = new Vector2(1, 0);//因为与机器人相比，Ruby 可以站立不动。她站立不动时，Move X 和 Y 均为 0，因此状态机不知道要使用哪个方向（除非我们指定方向）。
+
     // Start is called before the first frame update
     private void Start() {
         //QualitySettings.vSyncCount = 0;
         //Application.targetFrameRate = 10;
 
         rb2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         currentHealth = maxHealth;
     }
 
@@ -27,6 +31,17 @@ public class RubyController : MonoBehaviour {
     private void Update() {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
+
+        Vector2 move = new Vector2(horizontal, vertical);
+
+        if (!Mathf.Approximately(move.x, 0) || !Mathf.Approximately(move.y, 0)) {
+            lookDirection.Set(move.x, move.y);
+            lookDirection.Normalize();
+        }
+
+        animator.SetFloat("Look X", lookDirection.x);
+        animator.SetFloat("Look Y", lookDirection.y);
+        animator.SetFloat("Speed", move.magnitude);
 
         if (isInvincible) {
             invincibleTimer -= Time.deltaTime;
@@ -44,6 +59,7 @@ public class RubyController : MonoBehaviour {
 
     public void ChangeHealth(int amount) {
         if (amount < 0) {
+            animator.SetTrigger("Hit");
             if (isInvincible)
                 return;
 
