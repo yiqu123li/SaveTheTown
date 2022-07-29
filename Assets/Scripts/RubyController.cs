@@ -57,10 +57,13 @@ public class RubyController : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.X)) {
             /*射线投射是将射线投射到场景中并检查该射线是否与碰撞体相交的行为*/
-            bool hit = Physics2D.Raycast(rb2D.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
-            Debug.Log("这个射线投射是否有=" + hit);
-            if (hit)
+            RaycastHit2D hit = Physics2D.Raycast(rb2D.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
+            if (hit.collider) {
                 Debug.Log("青蛙应该跟你对话");
+                NonPlayerCharacter character = hit.collider.GetComponent<NonPlayerCharacter>();
+                if (character)
+                    character.DisplayDialog();
+            }
         }
     }
 
