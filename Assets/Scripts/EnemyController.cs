@@ -59,6 +59,6 @@ public class EnemyController : MonoBehaviour {
         broken = false;
         rb2D.simulated = false;
         animator.SetTrigger("Fixed");
-        smokeEffect.Stop();
+        //smokeEffect.Stop();//关闭循环播放,改成了粒子播放玩自动销毁
     }
 }
