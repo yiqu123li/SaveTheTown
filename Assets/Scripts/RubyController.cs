@@ -19,6 +19,9 @@ public class RubyController : MonoBehaviour {
     private Vector2 lookDirection = new Vector2(1, 0);//因为与机器人相比，Ruby 可以站立不动。她站立不动时，Move X 和 Y 均为 0，因此状态机不知道要使用哪个方向（除非我们指定方向）。
 
     [SerializeField] private GameObject projectilePrefab;
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip launchClip;
+
 
     // Start is called before the first frame update
     private void Start() {
@@ -27,6 +30,7 @@ public class RubyController : MonoBehaviour {
 
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         currentHealth = maxHealth;
     }
 
@@ -96,5 +100,10 @@ public class RubyController : MonoBehaviour {
         projectile.Launch(lookDirection, 300);
 
         animator.SetTrigger("Launch");
+        PlaySound(launchClip);
+    }
+
+    public void PlaySound(AudioClip clip) {
+        audioSource.PlayOneShot(clip);
     }
 }
