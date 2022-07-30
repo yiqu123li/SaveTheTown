@@ -40,7 +40,7 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos: []
-  m_VirtualRealitySplashScreen: {fileID: 0}
+  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: aa3e0837878604144b973aa396ea7dbd, type: 3}
   m_ShowUnitySplashAds: 0
   m_AdsAndroidGameId: 
   m_AdsIosGameId: 
