@@ -3,10 +3,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour {
 
     [SerializeField] private float outGround = 1000.0f;
-
     private Rigidbody2D rb2D;
-
-
 
     private void Awake() {
         rb2D = GetComponent<Rigidbody2D>();

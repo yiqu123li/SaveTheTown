@@ -3,13 +3,11 @@ using UnityEngine;
 public class NonPlayerCharacter : MonoBehaviour {
     [SerializeField] private float displayTime = 4f;
     [SerializeField] private GameObject dialogBox;
-    private float timerDisplay;
-
+    private float timerDisplay = -1.0f;
 
     // Start is called before the first frame update
     private void Start() {
         dialogBox.SetActive(false);
-        timerDisplay = -1.0f;
     }
 
     // Update is called once per frame
