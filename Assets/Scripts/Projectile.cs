@@ -19,7 +19,9 @@ public class Projectile : MonoBehaviour {
         if (e)
             e.Fix();
 
-        Destroy(gameObject);
+        // 如果是跟主角碰撞 不移出子弹
+        if (other.gameObject.name != "Ruby")
+            Destroy(gameObject);
     }
 
     private void Update() {
