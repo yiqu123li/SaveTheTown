@@ -21,7 +21,7 @@ public class RubyController : MonoBehaviour {
     private float vertical;
 
     private Animator animator;
-    private Vector2 lookDirection = new Vector2(1, 0);//因为与机器人相比，Ruby 可以站立不动。她站立不动时，Move X 和 Y 均为 0，因此状态机不知道要使用哪个方向（除非我们指定方向）。
+    private Vector2 lookDirection = new Vector2(1, 0);//她站立不动时，Move X 和 Y 均为 0，因此状态机不知道要使用哪个方向（除非我们指定方向）。
 
     private AudioSource audioSource;
 
