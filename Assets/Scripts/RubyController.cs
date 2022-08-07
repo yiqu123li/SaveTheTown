@@ -42,6 +42,8 @@ public class RubyController : MonoBehaviour {
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         currentHealth = maxHealth;
+
+        joystick.GetComponent<VariableJoystick>().SetMode(JoystickType.Floating);
     }
 
     // Update is called once per frame

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8827216265913914826}
   - component: {fileID: 8827216265913914827}
-  - component: {fileID: 7772047351864278744}
+  - component: {fileID: 7300012072794255436}
   m_Layer: 0
   m_Name: House
   m_TagString: Untagged
@@ -83,8 +83,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7772047351864278744
-BoxCollider2D:
+--- !u!68 &7300012072794255436
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -96,16 +96,22 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.25309706, y: 0.8966558}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.2791497, y: 0.08943933}
-    oldSize: {x: 8.45, y: 7}
-    newSize: {x: 8.45, y: 7}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.633355, y: 1.8742166}
+  m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.466683, y: 2.958077}
+  - {x: 1.8712595, y: 2.990842}
+  - {x: 1.8896431, y: 2.7441974}
+  - {x: 2.542583, y: 2.698951}
+  - {x: 2.5283227, y: 1.9988351}
+  - {x: 3.335611, y: 1.828938}
+  - {x: 3.375887, y: 0.6769862}
+  - {x: 2.320216, y: 0.03360021}
+  - {x: -2.088416, y: 0.03201711}
+  - {x: -2.0668945, y: 2.7684367}
+  - {x: -1.5009851, y: 2.7761598}
+  - {x: -1.4666833, y: 2.9580774}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
